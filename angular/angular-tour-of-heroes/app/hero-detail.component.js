@@ -10,26 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 // Keep the Input import for now, we'll remove it later:
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var common_1 = require('@angular/common');
-var hero_service_1 = require('./hero.service');
+var hero_1 = require('./hero');
 var HeroDetailComponent = (function () {
-    function HeroDetailComponent(heroService, route, location) {
-        this.heroService = heroService;
-        this.route = route;
-        this.location = location;
+    function HeroDetailComponent() {
     }
-    HeroDetailComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.params.forEach(function (params) {
-            var id = +params['id'];
-            _this.heroService.getHero(id)
-                .then(function (hero) { return _this.hero = hero; });
-        });
-    };
-    HeroDetailComponent.prototype.goBack = function () {
-        this.location.back();
-    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', hero_1.Hero)
+    ], HeroDetailComponent.prototype, "hero", void 0);
     HeroDetailComponent = __decorate([
         core_1.Component({
             //moduleId: module.id,
@@ -38,7 +26,7 @@ var HeroDetailComponent = (function () {
             //styleUrls: [ 'hero-detail.component.css' ]
             template: "\n    <div *ngIf=\"hero\">\n      <h2>{{hero.name}} details!</h2>\n      <div><label>id: </label>{{hero.id}}</div>\n      <div>\n        <label>name: </label>\n        <input [(ngModel)]=\"hero.name\" placeholder=\"name\"/>\n      </div>\n    </div>\n    <button (click)=\"goBack()\">Back</button>\n  "
         }), 
-        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.ActivatedRoute, common_1.Location])
+        __metadata('design:paramtypes', [])
     ], HeroDetailComponent);
     return HeroDetailComponent;
 }());

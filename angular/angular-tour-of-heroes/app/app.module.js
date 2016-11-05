@@ -36,10 +36,6 @@ var AppModule = (function () {
                         component: dashboard_component_1.DashboardComponent
                     },
                     {
-                        path: 'detail/:id',
-                        component: hero_detail_component_1.HeroDetailComponent
-                    },
-                    {
                         path: 'heroes',
                         component: heroes_component_1.HeroesComponent
                     }

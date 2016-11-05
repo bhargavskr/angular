@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
-import { Router } from '@angular/router';
+
 @Component({
   //moduleId: module.id,
   selector: 'my-heroes',
@@ -14,17 +14,16 @@ import { Router } from '@angular/router';
         <span class="badge">{{hero.id}}</span> {{hero.name}}
       </li>
     </ul>
-    <div *ngIf="selectedHero">
-  <h2>
-  `
-})
+    <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+   `
+  })
 
 export class HeroesComponent implements OnInit {
   
   heroes: Hero[];
   selectedHero: Hero;
   constructor(
-    private router: Router,
+    
     private heroService: HeroService
     ) { }
   getHeroes(): void {

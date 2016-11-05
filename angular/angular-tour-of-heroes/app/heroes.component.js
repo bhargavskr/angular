@@ -10,10 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var hero_service_1 = require('./hero.service');
-var router_1 = require('@angular/router');
 var HeroesComponent = (function () {
-    function HeroesComponent(router, heroService) {
-        this.router = router;
+    function HeroesComponent(heroService) {
         this.heroService = heroService;
     }
     HeroesComponent.prototype.getHeroes = function () {
@@ -30,9 +28,9 @@ var HeroesComponent = (function () {
         core_1.Component({
             //moduleId: module.id,
             selector: 'my-heroes',
-            template: "\n   <h2>My Heroes</h2>\n    <ul class=\"heroes\">\n      <li *ngFor=\"let hero of heroes\"\n        [class.selected]=\"hero === selectedHero\"\n        (click)=\"onSelect(hero)\">\n        <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n      </li>\n    </ul>\n    <div *ngIf=\"selectedHero\">\n  <h2>\n  "
+            template: "\n   <h2>My Heroes</h2>\n    <ul class=\"heroes\">\n      <li *ngFor=\"let hero of heroes\"\n        [class.selected]=\"hero === selectedHero\"\n        (click)=\"onSelect(hero)\">\n        <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n      </li>\n    </ul>\n    <my-hero-detail [hero]=\"selectedHero\"></my-hero-detail>\n   "
         }), 
-        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])
+        __metadata('design:paramtypes', [hero_service_1.HeroService])
     ], HeroesComponent);
     return HeroesComponent;
 }());
